@@ -1,0 +1,47 @@
+#en{
+    font-family: 'Quicksand', sans-serif;
+}
+
+#kr{
+    font-family: 'Single Day', cursive;
+}
+
+.fonttest1{
+    color: yellowgreen;
+}
+
+.fonttest2{
+    direction: rtl;
+}
+
+.fonttest3{
+    letter-spacing: 1.5ch;
+}
+
+.fonttest4{
+    line-height: 4ch;
+}
+
+.fonttest5{
+    text-align: center;
+}
+
+.fonttest6{
+    text-decoration: underline;
+    text-decoration-color: blue;
+}
+
+.fonttest7{
+    text-indent: 2ch;
+}
+
+.fonttest8{
+    text-shadow: 2px 2px 2.5px goldenrod;
+}
+
+.fonttest9{
+    text-transform: uppercase;
+}
+#id1{
+    color: lightcoral;
+}
