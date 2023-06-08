@@ -1,0 +1,43 @@
+/* css_display_style */
+
+.container {
+    width: 500px;
+    height: 500px;
+    background-color: purple;
+}
+
+.container .item {
+    /* display: inline-block; */
+    border: 1px solid yellowgreen;
+    color: red;
+}
+
+.container .item:nth-child(1) {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    z-index: 999;
+    background-color: white;
+}
+
+.container .item:nth-child(2) {
+    position: absolute;
+    top: 80px;
+    left: 90px;
+    width: 100px;
+    height: 120px;
+    z-index: 1;
+    background-color: gray;
+}
+
+.container .item:nth-child(3) {
+    position: absolute;
+    top: 140px;
+    left: 140px;
+    width: 100px;
+    height: 140px;
+    z-index: 2;
+    background-color: black;
+}
