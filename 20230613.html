@@ -1,0 +1,59 @@
+<!-- css_flex_2.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .item {
+            background-color:antiquewhite;
+        }
+
+        .item:nth-child(1) {
+            background-color: #00f;
+            /* order: 4; */
+            /* flex-grow: 1; */
+            flex-basis: 20%;
+        }
+
+        .item:nth-child(2) {
+            background-color: #0f0;
+            /* order: 2; */
+            /* flex-grow: 2; */
+            flex-basis: 60%;
+        }
+
+        .item:nth-child(3) {
+            background-color: #0ff;
+            /* order: 3; */
+            /* flex-grow: 3; */
+            flex-basis: 10%;
+        }
+
+        .item:nth-child(4) {
+            background-color: #f00;
+            /* order: 1; */
+            /* flex-grow: 4; */
+            flex-basis: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+</body>
+</html>
