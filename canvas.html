@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*도형스타일 지정*/
+#menu {
+	display: flex;
+	width: 100%;
+	height: 120px;
+}
+
+#menu #floor {
+	width: 180px;
+	height: 64px;
+}
+
+#menu #floor button {
+	width: 64px;
+	height: 64px;
+	color: #90bcff;
+	background-color: #fff;
+	border: 1px solid #90bcff ;
+	border-radius: 5px;
+}
+
+#menu #floor button:hover {
+	width: 64px;
+	height: 64px;
+	color: #fff;
+	background-color: #90bcff;
+	border: 1px solid #fff ;
+	border-radius: 5px;
+}
+
+#box{
+	width : 200px;
+	height : 300px;
+	background-color : #b8b8b8;
+	border-radius : 10px;
+}
+</style>
+</head>
+<div id="menu">
+	<h1>엘리베이터</h1>
+	<div id="floor">
+		<h2>층 추가/감소</h2>
+		<button class="floor" type="button" onclick="add_f">층+</button>
+		<button class="floor" type="button" onclick="dis_f">층-</button>
+	</div>
+</div>
+<body>
+	<h1></h1>
+
+<div id="box"></div>
+
+
+
+
+<script type="text/javascript"> // 자바스크립트 작성구간 
+var func; //두 함수 모두 사용해야하므로, scope설정을 위해 함수 외부에 생성 
+var num = 0; // 원형 위치 초기화
+var num2 = 0;
+var fps = 20;
+var box; // 원형 데이터를 불러올 변수
+
+// 애니메이션 시작메서드 (시작button 클릭시) 
+function doMove(){
+    // setInterval : 일정한 시간 간격으로 수행할 메서드(수행동작==함수, 시간)
+	func = setInterval(function(){  
+		box = document.querySelector("#box"); // body에 작성된 div의 요소를 box변수에 저장
+		num += 9.8/1000 * fps * num2;   
+		num2 += 1;
+		box.style.marginTop = num + 'px'; 
+
+		var color = ["red", "pink", "yellow", "beige", "lightgreen", "lightpurple", "lightblue", "lightgray", "coral"];
+		var rand = Math.floor(Math.random()*9); 
+		box.style.backgroundColor = color[rand];
+		
+	}, 1000/fps); // 100 == 0.1초
+	
+}
+
+// 애니메이션 종료메서드 (종료button 클릭시)
+function doStop(){
+	clearInterval(func); // setInterval했던 변수 func를 지워주어 동작을 멈춘다.
+	box.style.backgroundColor = "yellow"; // 기존 색상 복구
+}
+
+</script>
+
+
+
+</body>
+</html>
