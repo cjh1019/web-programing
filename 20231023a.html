@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="target" onclick="addNode('동적으로 텍스트가 추가됩니다.')" style="font: 20px italic;">여기를 클릭하세요</div>
+
+    <script>
+        function addNode(t) {
+            let node = document.createElement("p");
+            node.innerHTML = t;
+            document.getElementById("target").appendChild(node);
+        
+        }
+    </script>
+</body>
+</html>
