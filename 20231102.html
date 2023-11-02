@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Math Quiz</h1>
+    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+        <input style="width: 70%; max-width: 600px; height: 25px;" id="problem" type="text" value="12*2+20-30">
+        <input style="width: 30%; max-width: 200px;" type="button" onclick="newProblem()" value="다음문제">
+    </div>
+    <div style="display: flex; gap: 10px;">
+        <input style="width: 70%; max-width: 600px; height: 25px;" id="answer" type="number" placeholder="정답을 입력하세요.">
+        <input style="width: 30%; max-width: 200px;" type="button" onclick="cal()" value="정답 알아보기">
+    </div>
+
+    <p id="count">맞춘 개수 : 0</p>
+
+    <script>
+        let pro = document.getElementById("problem").value;
+        let count = 0;
+
+        function cal() {
+            let answer = document.getElementById("answer").value;
+            solution = eval(pro);
+
+            if(parseFloat(answer) == solution) {
+                alert("정답입니다.");
+                count ++;
+                document.getElementById("count").innerHTML = "맞춘 개수 : " + count;
+            }
+            else {
+                alert("틀렸습니다! 정답은 " + solution);
+                newProblem();
+            }
+        }
+
+        function newProblem() {
+            let num = Math.floor(Math.random() * 10 / 8 + 2);
+            let s = "";
+            let op = ['+', '-', '*', '/' ];
+            for(let i = 0 ; i < num ; i++) {
+                s += Math.floor(Math.random() * 10);
+                if(i == num - 1) {
+                    break;
+                }
+                else {
+                    s += op[Math.floor(Math.random() * 10 / 3)];
+                }
+            }
+            document.getElementById("problem").value = s;
+            pro = s;
+        }
+    </script>
+</body>
+</html>
