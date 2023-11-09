@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let w;
+        function openWindow() {
+            w = window.open(' ', ' ', 'width=200, height=100');
+            w.document.write("<p>오늘 다음과 같은 상품을 싸게 팝니다.</p>");
+       //
+
+        }
+
+        function moveWindow() {
+       //
+            w.focus();
+        }
+    </script>
+    
+    <input type="button" value="윈도우 생성" onclick="openWindow()" /> <br>
+    <input type="button" value="윈도우 이동" onclick="moveWindow()" />
+</body>
+</html>
