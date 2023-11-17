@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="300" height="200"
+style="border: 1px dotted red"></canvas>
+<script>
+let canvas = document.getElementById("myCanvas");
+let context = canvas.getContext("2d");
+context.fillStyle = "#ff0000aa";
+context.fillRect(50, 50, 100, 50);
+context.fillStyle = "#00ff00aa";
+context.fillRect(100, 50, 100, 50);
+context.fillStyle = "#0000ffaa";
+context.fillRect(75, 75, 100, 50);
+context.strokeRect(180, 180, 100, 50);
+</script>
+</body>
+</html>
