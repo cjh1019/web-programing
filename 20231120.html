@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<style>
+    #myCanvas {
+        background-color: rgb(241, 239, 209);
+        border: 1px dotted blue;
+    }
+</style>
+
+<body>
+    <button onclick="context.clearRect(0, 0, canvas.width, canvas.height);">화면 지우기</button><br>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <div style="
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    gap: 15px;
+    ">
+        <div>배경 색상<input type="color" id="backgroundColorPick" onchange="colorSet();"></div>
+        <div>선 색상<input type="color" id="borderColorPick" onchange="boc=this.value"></div>
+        <select id="type">
+            <option onclick="line(c)">선 그리기</option>
+            <option onclick="line(c)">사각형 그리기</option>
+        </select>
+    </div>
+
+
+
+
+    <script>
+        let bgc = '#ffffff';
+        let boc = '#000000';
+        let canvas = document.getElementById("myCanvas");
+        let context = canvas.getContext("2d");
+        let last_x = 0, last_y = 0;
+        let draw_mode = false;
+        let type = 'l';
+        let start_x;
+        let start_y;
+
+        function line(c) {
+            type = c;
+        }
+        function bgcolorSet() {
+            bgc = document.getElementById("backgroundColorPick").value;
+        }
+        function bocolorSet() {
+            boc = document.getElementById("borderColorPick").value;
+        }
+
+        canvas.addEventListener("mousemove", function (event) {
+            if (!draw_mode) return;
+            let x = event.offsetX;
+            let y = event.offsetY;
+            if (type == 'l') {
+                context.lineTo(x, y);
+                context.strokeStyle = boc;
+                context.stroke();
+            }
+            if (type == 'r') {
+                context.fillStyle = bgc;
+                context.fillRect(start_x, start_y, start_x - x, start_y - y);
+            }
+            last_x = x;
+            last_y = y;
+        });
+
+        canvas.addEventListener("mousedown", function (event) {
+            last_x = event.offsetX;
+            last_y = event.offsetY;
+            start_x = last_x;
+            start_y = last_y;
+            if(type == 'l') {
+                context.beginPath();
+                context.moveTo(last_x, last_y);
+            }
+            draw_mode = true;
+        });
+        canvas.addEventListener("mouseup", function (event) {
+            draw_mode = false;
+        });
+        canvas.addEventListener("mouseout", function (event) {
+            draw_mode = false;
+        });
+    </script>
